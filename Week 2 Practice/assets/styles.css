@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+    font-family: "roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #cafdff;
+}
+
+header {
+    background-color: #eadcff;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+.subheader {
+    font-size: 36px;
+    margin: 16px 0px 24px 0px;
+}
+
+.row {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #05c7cf;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+a {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo {
+    width: 300px;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    padding: 16px;
+}
+
+/*
+
+ABOUT
+
+*/
+
+#about, #discord, #contact {
+    padding: 48px 0px;
+}
+
+#about {
+    background-color: #f8ffdc;
+}
+
+h2 {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 24px;;
+}
+
+.section__description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__img--wrapper {
+    width: 40%;
+}
+
+img {
+    width: 100%;
+}
+
+.section__description--wrapper {
+    width: 60%;
+}
+
+.section__description--wrapper,
+.about__img--wrapper {
+    padding: 24px;
+}
+
+.section__description-para {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/*
+
+DISCORD
+
+*/
+
+#discord {
+    background-color: #cefeff;
+}
+
+.discord__image--wrapper {
+    width: 40%;
+}
+
+/* 
+
+CONTACT
+
+*/
+
+#contact {
+    background-color: #dce9ff;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.footer {
+    background-color: #aaf5ff;
+}
+.footer__logo {
+    max-width: 300px;
+    margin-bottom: 16px;
+}
+
+.footer__links {
+    margin-bottom: 16px;
+}
+
+.footer__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyright {
+    margin-bottom: 24px;
+}
