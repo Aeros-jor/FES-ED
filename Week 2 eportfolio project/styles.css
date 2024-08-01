@@ -36,6 +36,11 @@ li {
 a {
     text-decoration: none;
     position: relative;
+    transition: opacity 300ms ease;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 
 .link__hover-effect:after {
@@ -217,12 +222,32 @@ nav {
     animation: fade-in 1200ms 800ms backwards;
 }
 
-@keyframes fade-up {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+.wave {
+    display: inline-block;
+    padding: 0 8px;
+    animation: animate-wave 800ms infinite ease-in-out;
+}
+
+@keyframes animate-wave {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: translateY(4px);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0);
     }
 }
 
