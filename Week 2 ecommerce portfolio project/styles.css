@@ -44,7 +44,7 @@ img {
     width:100%;
     height: 100%;
     max-height: 40vh; /* Helps with Laptop sized screens */
-    padding: 20px;
+    /*padding: 20px;*/
  
 }
 .nav__link {
@@ -151,31 +151,26 @@ button:active {
     position: relative;
 }
 
-#highlights:before {
-    background: url(./assets/wave.svg);
-    content: "";
-    position: absolute;
-    width:101vw;
-    height: 18vh;
-    top: 1px;
-    left: 0;
-    z-index: 1;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transform: translateY(-100%);
-}
+#highlights:before,
 #highlights:after {
     background: url(./assets/wave.svg);
     content: "";
     position: absolute;
     width:101vw;
     height: 18vh;
-    bottom: 1px;
     left: 0;
     z-index: 1;
     background-size: cover;
-    background-repeat: no-repeat;
-    transform: translateY(100%) rotate(180deg);   
+    background-repeat: no-repeat;    
+}
+
+#highlights:before {
+    transform: translateY(-100%);
+    top: 1px;
+}
+#highlights:after {
+    transform: translateY(100%) rotate(180deg);  
+    bottom: 1px;    
 }
 
 .highlight__wrapper {
@@ -196,6 +191,7 @@ button:active {
 }
 .highlight__img {
     border:2px solid #a1112b45;
+    color: #a1112c;
     width: 100px;
     height: 100px;
     display: flex;
@@ -204,8 +200,9 @@ button:active {
     border-radius: 4px;
     font-size: 32px;
     margin-bottom: 24px;
-    color: #a1112c;
+    
 }
+
 
 .highlight__subtitle {
     font-size: 20px;
@@ -215,5 +212,52 @@ button:active {
 
 #features {
     background-color: #f3e4df;
-    height: 1000px;
+    padding-top: 16vh;
+}
+
+.books {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 25%;
+    padding: 24px;
+
+}
+.book__img {
+    max-height: 380px;
+    transition: all 300ms ease;
+    cursor: no-drop;
+}
+
+.book__img--wrapper {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+}
+
+.book:hover .book__img {
+    transform: scale(1.03);
+}
+
+.book__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.book__title:hover {
+    text-decoration: underline;
+    cursor: not-allowed;
+}
+
+.book__ratings {
+    margin-bottom: 8px;
+    color: #fabf2a;
+}
+
+.book__price--normal {
+    text-decoration: line-through;
+    padding-right: 8px;
+    color: lightslategray;
 }
