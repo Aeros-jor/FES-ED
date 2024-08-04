@@ -10,30 +10,58 @@
 #landing {
     min-height: 100vh;
     width: 100%;
+    
+}
+#heading {
     display: flex;
+    padding: 96px 0;
+
 }
 
 a {
     text-decoration: none;
+
+}
+
+button {
+    display: flex;
+    cursor: pointer;
+}
+h1 {
+    font-weight: 48px;
 }
 nav {
-    height: 100px;
+
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 12px;
 }
 menu {
     list-style-type: none;
+}
+.site__frame {
+    padding: 32px;
+}
+.row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav__container {
     display: flex;
     align-items: center;
     margin: 24px;
+}
+.header__container {
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    padding: 96px 0;
+    
 }
 
 .nav__logo--img {
@@ -73,4 +101,98 @@ menu {
     border-radius: 50px;
     color: white;
     transition: all 300ms ease;
+}
+.link__hover-effect:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: black;
+    width: 0%;
+    bottom: -3px;
+    right: 0;
+    transition: all 300ms ease;
+}
+.link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
+}
+.link__hover-effect--white:after {
+    background-color: white;
+}
+.link__hover-effect--black:after {
+    background-color: #3f3d56;
+}
+
+/* HEADING SECTION */
+.header__description {
+    width: 40%;
+    position: relative;
+}
+
+.header__img--wrapper {
+
+    width: 60%;
+}
+.purple {
+    color: #6415FF;
+}
+.header__description--img {
+    width: 100%;
+    height: 100%;
+    max-height: 40vh;
+    
+}
+.header__description--customer-logo {
+    width: 100%;
+    padding-right: 64px;
+    margin-top: 16px;
+}
+.header__description--title {
+    font-size: 48px;
+}
+.header__description--para {
+    font-size: 18px;
+    margin: 32px 0;
+}
+.header__description--customers {
+    font-size: 12px;
+    margin-top: 80px;
+}
+.header__description--email-input input {
+    width: 100%;
+
+}
+
+.header__description--email {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+
+}
+
+.header__description--email input {
+    padding: 20px 192px 20px 32px;
+    border: solid 2px lightgray;
+    border-radius: 50px;
+    padding-left: 16px;
+    font-weight: 500;
+    width: 100%;
+
+}
+.header__description--email button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    border-radius: 50px;   
+    background-color: #6415FF;
+    padding: 16px 0;    
+    border: none;
+    height: 80%;
+    width: 150px;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    right: 0;   
+    top: 10%;
 }
