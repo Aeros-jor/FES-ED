@@ -584,3 +584,28 @@ menu {
     border-bottom-right-radius: 8px;
 
 }
+
+/*TESTIMONIALS*/
+
+.testimonials--wrapper {
+    display: flex;
+    align-items: center;
+}
+.testimonials__img--wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+.testimonials__site--img {
+    width: 100%;
+    max-width: 90%;
+}
+.testimonials__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.testimony__box {
+
+}
