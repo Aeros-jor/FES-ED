@@ -1,9 +1,11 @@
-function leftClick() {
-  document.getElementById("left__button").style.border = "solid";
-  document.getElementById("left__button").style.borderWidth = "2px";
-  document.getElementById("left__button").style.borderColor = "lightblue";
+function openMenu() {
+  const element = document.getElementById("nav-div");  // Get the DIV element
+  element.classList.remove("menu--close"); // Remove mystyle class from DIV
+  element.classList.add("menu--open"); // Add newone class to DIV
 }
-function rightClick() {
-  document.getElementById("left__button").style.border = "solid";
-  document.getElementById("right__button").style.borderColor = "lightblue";
+function closeMenu() {
+  const element = document.getElementById("nav-div");  // Get the DIV element
+  element.classList.remove("menu--open"); // Remove mystyle class from DIV
+  element.classList.add("menu--close"); // Add newone class to DIV
 }
+

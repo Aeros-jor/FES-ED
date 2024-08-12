@@ -13,7 +13,7 @@
         <div class="site_frame">
             <div>
                 <section id="landing">
-                    <nav>
+                    <nav class="nav__link--desktop-menu">
                         <div class="nav__logo--wrapper">
                             <figure class="nav__logo">
                                 <a href="#" class="nav__logo--link"><img src="./assets/logoT.svg" alt="" class="nav__logo--img">Treact</a>
@@ -28,8 +28,35 @@
                                 <li class="nav__link"><a href="" class="nav__link--anchor nav__link--anchor-primary">Sign up</a></li>
                             </menu>
                     </nav>
+                    <nav class="nav__link--mobile-menu">
+                        <figure class="nav__logo">
+                            <a href="#" class="nav__logo--link"><img src="./assets/logoT.svg" alt="" class="nav__logo--img">Treact</a>
+                        </figure>
+                        <div id="nav-div" class="nav__link--mobile-links menu--close" >
+                            <div class="btn-tgl">
+                                <button class="nav__link--toggle-close" onclick="closeMenu()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="light___StyledCloseIcon-sc-lj69nl-14 brSrPp"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div>
+                                <menu class="nav__link--mobile-list">
+                                    <li class="nav__link nav__link--mobile-anchor"><a href="" class="hover-underline-animation-mobile">About</a></li>
+                                    <li class="nav__link nav__link--mobile-anchor"><a href="" class="hover-underline-animation-mobile">Blog</a></li>
+                                    <li class="nav__link nav__link--mobile-anchor"><a href="" class="hover-underline-animation-mobile">Pricing</a></li>
+                                    <li class="nav__link nav__link--mobile-anchor"><a href="" class="hover-underline-animation-mobile">Contact Us</a></li>
+                                    <li class="nav__link nav__link--mobile-anchor"><a href="" class="hover-underline-animation-mobile">Login</a></li>
+                                    <li class="nav__link nav__link--mobile-anchor-primary"><a href="">Sign up</a></li>
+                                </menu>
+                            </div>
+                        </div>
+                        <button class="nav__link--toggle-open" onclick="openMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="light___StyledMenuIcon-sc-lj69nl-15 bPlZcF"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                    </nav>
                     <header>
-                        <div class="row">
+                        <div class="row center">
                             <div class="header__container">
                                 <div class="header__description">
                                     <h1 class="header--title">
@@ -43,7 +70,7 @@
                                         <button class="btn">Get Started</button>
                                     </div>
                                     <div class="header__description--customers">
-                                        <p>OUR TRUSTED CUSTOMERS</p>
+                                        <p class="trusted__customers">OUR TRUSTED CUSTOMERS</p>
                                         <img src="./assets/customers-logo-strip.png" alt="" class="header__description--customer-logo">
                                     </div>
 
@@ -63,7 +90,7 @@
                 <div>
                     <section id="features">
                         <div class="container">
-                            <div class="row">
+                            <div class="row  center">
                                 <div class="features--wrapper">
                                     <h5 class="features__title purple title">
                                         FEATURES
@@ -80,7 +107,7 @@
                                                 <i class="fa-solid fa-shield-virus"></i>
                                             </div>
                                             <div class="features__tile--info">
-                                                <h2 class="features__tile--title">Secure</h1>
+                                                <h2 class="features__tile--title">Secure</h2>
                                                 <p class="features__tile--description">
                                                     We strictly only deal with vendors that provide top notch security.
                                                 </p>
@@ -154,7 +181,7 @@
                 <div>
                     <section id="quality">
                         <div class="container">
-                            <div class="row">
+                            <div class="row  center">
                                 <div class="quality__work--wrapper">
                                     <div class="quality__work">
                                         <h5 class="title purple">QUALITY WORK</h5>
@@ -164,7 +191,9 @@
                                         <p class="description--para">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                         </p>
-                                        <a href=""><button class="btn learn__btn">Learn More</button></a>
+                                        <div class="learn__button--wrapper">
+                                            <a href=""><button class="btn learn__btn">Learn More</button></a>
+                                        </div>
                                     </div>
 
                                     <div class="quality__site-page">
@@ -180,7 +209,7 @@
                 <div>
                     <section id="start__steps">
                         <div class="container">
-                            <div class="row">
+                            <div class="row  center">
                                 <div class="steps--wrapper">
                                     <div class="steps__site-page">
                                         <img src="./assets/steps-site-image.png" alt="" class="steps__site--img">
@@ -230,7 +259,7 @@
                 <div>
                     <section id="values">
                         <div class="container">
-                            <div class="row">
+                            <div class="row center">
                                 <div class="values--wrapper">
                                     <div class="values">
                                         <h5 class="title purple">VALUES</h5>
@@ -280,7 +309,7 @@
                 <div>
                     <section id="pricing__plans">
                         <div class="container">
-                            <div class="row">
+                            <div class="row center">
                                 <div class="pricing--wrapper">
                                     <div class="pricing">
                                         <div class="pricing__header--wrapper">
@@ -366,7 +395,7 @@
                 <div>
                     <section id="testimonials">
                         <div class="container">
-                            <div class="row">
+                            <div class="row center">
                                 <div class="testimonials--wrapper">
                                     <div class="testimonials__img--wrapper">
                                         <img src="./assets/love-illustration.c759090fa833369ad6ffb6eb19cacb3e.svg" alt="" class="testimonials__site--img">
@@ -423,7 +452,7 @@
                 <div>
                     <section id="faqs">
                         <div class="container">
-                            <div class="row">
+                            <div class="row center">
                                 <div class="faqs__container">
                                     <div class="faqs__header">
                                         <h5 class="title purple">FAQS</h5>
@@ -470,7 +499,7 @@
                 <div>
                     <section id="faqs">
                         <div class="container">
-                            <div class="row">
+                            <div class="row center">
 
                                 <div class="get-started__container">
                                     <div class="get-started__row">
@@ -507,34 +536,34 @@
                                     <div class="menu__column">
                                     <h5 class="menu__column--title">MAIN</h5> 
                                     <ul class="menu__column--items">
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Blog</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Blog</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">FAQs</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">FAQs</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Support</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Support</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">About Us</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">About Us</a>
                                         </li> 
                                     </ul>
                                     </div>
                                     <div class="menu__column">
                                     <h5 class="menu__column--title">PRODUCT</h5> 
                                     <ul class="menu__column--items">
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Log In</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Log In</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Personal</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Personal</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Business</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Business</a>
                                         </li> 
-                                        <li class="menu__column--item hover-underline-animation">
-                                                <a href="#" class="menu__column--link">Team</a>
+                                        <li class="menu__column--item">
+                                                <a href="#" class="menu__column--link hover-underline-animation">Team</a>
                                         </li> 
                                     </ul>
                                     </div>
