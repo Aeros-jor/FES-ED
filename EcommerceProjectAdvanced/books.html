@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <script src="https://kit.fontawesome.com/68695610e7.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <section id="landing">
+        <nav>
+            <div class="nav__container">    
+                <img src="./assets/Library.svg" class="logo" alt="">
+                <ul class="nav__links">
+                    <li><a href="#" class="nav__link rust">Home</a></li>
+                    <li><a href="#" class="nav__link rust">Contact</a></li>
+                    <li><a href="#features" class="nav__link nav__link--primary rust">Books</a></li>
+                </ul>
+                <button class="btn__menu" onclick="openMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>                
+                <div class="menu__backdrop">
+                        <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <ul class="menu__links">
+                            <li class="menu__list"><a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+                            </li>
+                            <li class="menu__list"><a href="#features" class="menu__link" onclick="closeMenu()">Book</a>
+                            </li>
+                            <li class="menu__list"><a href="" class="menu__link no-cursor" onclick="closeMenu()">Contact</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </nav> 
+    </section>
+    <main class="books__main">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <h2 class="section__title books__header--title">
+                        All <span class="rust">Books</span>
+                    </h2>
+                    <div class="book">
+                        <figure class="book__img--wrapper">
+                            <img src="./assets/atomic habits.jpg" alt="" class="book__img">
+                        </figure>
+                        <div class="book__title">
+                            Atomic Habits
+                        </div>
+                        <div class="book__ratings">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="book__price">
+                           <span class="book__price--normal">$29.99</span> $14.95
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main> 
+    <footer>
+        <div class="footer__container">
+            <div class="row row__column">
+                <a href="#">
+                    <figure class="footer__logo">
+                        <img src="./assets/Library.svg" alt="" class="footer__logo--img">
+                    </figure>
+                </a>
+                <div class="footer__links">
+                    <a href="" class="footer__link">Home</a>
+                    <a href="" class="footer__link no-cursor">About</a>
+                    <a href="" class="footer__link">Books</a>
+                    <a href="" class="footer__link no-cursor">Contact</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                Copyright &copy; 2024, All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
