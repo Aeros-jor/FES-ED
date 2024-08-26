@@ -9,7 +9,7 @@ async function main() {
     userListEl.innerHTML = usersData.map((user) => userHTML(user)).join("");
 }
 
-main()
+
 
 function showUserPosts(id) {
     localStorage.setItem("id", id);
@@ -26,3 +26,6 @@ function userHTML(user) {
                 </div>
             </div>`
 }
+setTimeout(() => {
+   main() 
+}, 2000);
