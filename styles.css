@@ -4,9 +4,7 @@
     color: rgb(89, 9, 139);
     text-decoration: none;
 }
-.w2__ecommerce--portfolio, 
-.w2__eportfolio--project, 
-.w2__final--project {
+.projects {
     font-size: 32px;
     font-weight: 700;
     letter-spacing: .05em;
