@@ -8,13 +8,15 @@ document.getElementById("page__control").value = page
 async function getMovies() {
     const movies = await fetch(`https://www.omdbapi.com/?s=${titleSearch}&type=${movieType}&page=${page}&apikey=dc7d7fc0`);
     const moviesData = await movies.json();
-    console.log(page);
+    //console.log(page);
     const movieListEl = document.querySelector(".movie-list");
 
     if (moviesData.Search && Array.isArray(moviesData.Search)) {
-        movieListEl.innerHTML = moviesData.Search.map((movie) =>
-          movieHTML(movie)
+        movieListEl.innerHTML = moviesData.Search.map((movie) => 
+            movieHTML(movie)     
+        
         ).join("");
+        
       } else {
         console.error("No movies found or invalid response:", moviesData);
       }
@@ -26,6 +28,7 @@ async function searchMovieType(event) {
         page = 1
         document.getElementById("page__control").value = "1";
     }
+
     getMovies()
 }
 async function searchMovieTitle(event) {
@@ -45,49 +48,55 @@ async function flipPage(event) {
 getMovies()
 // ******************************************************************
 
-async function getPlot() {
-    const movieId = 'tt0076759'; // Star Wars: Episode IV - A New Hope
+async function getPlot(movieId) {
     const apiKey = 'dc7d7fc0';
     const movie = await fetch(`http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=${apiKey}`);
     const movieData = await movie.json();
-    console.log(movieData)
-    const movieListEl = document.querySelector(".movie-list");
+    //console.log(movieData)
+    const movieListEl = document.querySelector(".plot");
     
     if (movieData.Response === "True") {
-        movieListEl.innerHTML = movieHTML(movieData);
+        movieListEl.innerHTML = plot__data(movieData);
+
     } else {
         console.error("Movie not found or invalid response:", movieData);
         movieListEl.innerHTML = "<p>Error: Unable to fetch movie data</p>";
     }
 }
 
-//getPlot()
-
 function movieHTML(movie){
+
     return `
-                    <div class="movie">
+            <div class="movie">
               <div class="movie-card">
                 <div class="movie-card__container">
                   <h1>${movie.Title}</h1>
                     <p><b>Type: ${movie.Type} | Year:${movie.Year}</b> </p>
                     <p><b><img src="${movie.Poster}" alt="" class="movie--img"></b> </p>
-                    <p><b>IMDB Id: ${movie.imdbID}</b></p>
+                    <div class="movie__card--footer">
+                        <h4 id="movie-id">${movie.imdbID}</h4>
+                        <button class="btn__more--info"  onclick="getPlot('${movie.imdbID}')">More Info</button>
+                    </div>
+                    <div class="project__wrapper--bg"></div>
                 </div>
               </div>
-            </div>`;
+            </div>
+            
+            `;
 }
 
-function plot__hover() {
-            // <div class="movie__wrapper--bg"></div>
-        //     <div class="movie__description">
-        //         <h1 class="movie__description--title">
-        //         Title: ${movie.Title}
-        //         </h1>
-        //         <h2 class="movie__description--actors">
-        //         Actors: ${movie.Actors}
-        //         </h2>
-        //         <p class="movie__description--plot">
-        //         ${movie.Plot}
-        //         </p>
-        //     </div><!--movie__description-->
+function plot__data(movie) {
+            return `<div class="movie__wrapper--bg"></div>
+            <div class="movie__description">
+                <h1 class="movie__description--title">
+                Title: ${movie.Title}
+                </h1>
+                <h2 class="movie__description--actors">
+                Actors: ${movie.Actors}
+                </h2>
+                <p><b><img src="${movie.Poster}" alt="" class="movie--img"></b> </p>
+                <p class="movie__description--plot">
+                ${movie.Plot}
+                </p>
+            </div><!--movie__description-->`
 }
