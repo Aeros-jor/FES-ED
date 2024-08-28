@@ -1,6 +1,8 @@
 let movieType = "movie";
 let titleSearch = "star";
 let page = "1";
+let isModalOpen = false;
+
 document.getElementById("type__control").value = movieType
 document.getElementById("title__control").value = titleSearch
 document.getElementById("page__control").value = page
@@ -8,15 +10,12 @@ document.getElementById("page__control").value = page
 async function getMovies() {
     const movies = await fetch(`https://www.omdbapi.com/?s=${titleSearch}&type=${movieType}&page=${page}&apikey=dc7d7fc0`);
     const moviesData = await movies.json();
-    //console.log(page);
     const movieListEl = document.querySelector(".movie-list");
 
     if (moviesData.Search && Array.isArray(moviesData.Search)) {
         movieListEl.innerHTML = moviesData.Search.map((movie) => 
             movieHTML(movie)     
-        
         ).join("");
-        
       } else {
         console.error("No movies found or invalid response:", moviesData);
       }
@@ -46,17 +45,17 @@ async function flipPage(event) {
 }
 
 getMovies()
+
 // ******************************************************************
 
 async function getPlot(movieId) {
     const apiKey = 'dc7d7fc0';
     const movie = await fetch(`http://www.omdbapi.com/?i=${movieId}&plot=full&apikey=${apiKey}`);
     const movieData = await movie.json();
-    //console.log(movieData)
-    const movieListEl = document.querySelector(".plot");
+    const movieListEl = document.querySelector(".modal");
     
     if (movieData.Response === "True") {
-        movieListEl.innerHTML = plot__data(movieData);
+        movieListEl.innerHTML = plotHTML(movieData);
 
     } else {
         console.error("Movie not found or invalid response:", movieData);
@@ -75,28 +74,38 @@ function movieHTML(movie){
                     <p><b><img src="${movie.Poster}" alt="" class="movie--img"></b> </p>
                     <div class="movie__card--footer">
                         <h4 id="movie-id">${movie.imdbID}</h4>
-                        <button class="btn__more--info"  onclick="getPlot('${movie.imdbID}')">More Info</button>
+                        <button class="btn__more--info"  onclick="toggleModal()">More Info</button>
                     </div>
                     <div class="project__wrapper--bg"></div>
                 </div>
               </div>
-            </div>
+            </div>`;
             
-            `;
+            
 }
 
-function plot__data(movie) {
-            return `<div class="movie__wrapper--bg"></div>
-            <div class="movie__description">
-                <h1 class="movie__description--title">
-                Title: ${movie.Title}
-                </h1>
-                <h2 class="movie__description--actors">
-                Actors: ${movie.Actors}
-                </h2>
-                <p><b><img src="${movie.Poster}" alt="" class="movie--img"></b> </p>
-                <p class="movie__description--plot">
-                ${movie.Plot}
-                </p>
-            </div><!--movie__description-->`
+function plotHTML(movie) {
+    
+            return `      <div class="modal__half movie__basic">
+          <h3 class="model__basic--title dk__brown">Title: ${movie.Title}</h3>
+          <h4 class="model__basic--subtitle dk__brown">Type: ${movie.Type} | Year:${movie.Year}</h4>
+          <p><b><img src="${movie.Poster}" alt="" class="movie--img"></b> </p>
+      </div>
+      <div class="modal__half movie__details">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="model__title model__title--details">Actors: ${movie.Actors}</h3>
+          <h3 class="modal__sub-title model__sub-title--details">${movie.Plot}</h3>
+          <div class="modal__overlay modal__overlay--loading">
+              <i class="fas fa-spinner"></i>
+          </div>
+      </div>`
+}
+
+function toggleModal() {
+    if (isModalOpen) {
+        isModalOpen = !isModalOpen;
+        return document.body.classList.remove("modal--open")
+    }
+    isModalOpen = !isModalOpen;
+    document.body.classList += " modal--open";
 }
