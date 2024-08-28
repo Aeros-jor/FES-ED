@@ -5,7 +5,7 @@ document.getElementById("type__control").value = movieType
 document.getElementById("title__control").value = titleSearch
 document.getElementById("page__control").value = page
 
-async function main() {
+async function getMovies() {
     const movies = await fetch(`https://www.omdbapi.com/?s=${titleSearch}&type=${movieType}&page=${page}&apikey=dc7d7fc0`);
     const moviesData = await movies.json();
     console.log(page);
@@ -26,7 +26,7 @@ async function searchMovieType(event) {
         page = 1
         document.getElementById("page__control").value = "1";
     }
-    main()
+    getMovies()
 }
 async function searchMovieTitle(event) {
     titleSearch = event.target.value;
@@ -34,15 +34,15 @@ async function searchMovieTitle(event) {
         page = 1
         document.getElementById("page__control").value = "1";
     }
-    main()
+    getMovies()
 }
 async function flipPage(event) {
     page = event.target.value;
     document.getElementById("page__control").value = page
-    main()
+    getMovies()
 }
 
-main()
+getMovies()
 
 function movieHTML(movie){
     return `

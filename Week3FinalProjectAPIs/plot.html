@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">  
+ 
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar">
+      <div class="img__wrapper">
+        <img src="./assets/logo.webp" alt="" class="logo">
+      </div>
+      <div class="site__title text__color">
+        <h1>Movies - TV Series Lookup</h1>
+      </div>
+      <div class="menu__wrapper text__color">
+        <ul class="menu__items">
+          <li class="menu__item">Home</li>
+          <li class="menu__item">Contact</li>
+        </ul>
+      </div>
+    </nav>  
+    <div class="search__container">
+
+    <div class="searchbar">
+      <h1 class="search__options--list text__color">Search Options</h1>
+      <div class="movie__type text__color">
+        <label class="movie__label">Type:</label>
+        <select name="movie" id="type__control" onchange="searchMovieType(event)">
+          <option value="">Select Type</option>
+          <option value="movie">Movie</option>
+          <option value="series">Series</option>
+          <option value="episode">Episode</option>
+        </select>
+      </div>
+      <div class="search__text text__color">
+        <label class="movie__label">Title Text:</label>
+        <input type="text" id="title__control" class=""  onblur="searchMovieTitle(event)">
+      </div>
+      <div class="page text__color">
+        <label class="movie__label">Page:</label>
+        <input type="number" id="page__control" min="1" max="100" placeholder="1" defaultValue="1" onchange="flipPage(event)">
+      </div>
+    </div>
+  </div>
     <div class="container">
         <div class="row">
           <div class="movie-list">
@@ -13,6 +52,16 @@
           </div>
         </div>
       </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="img__wrapper">
+          <img src="./assets/logo.webp" alt="" class="logo">
+        </div>
+        <div class="copyright text__color">
+          Movies - TV Series Lookup is &copy; 2024, all right reserved.
+        </div>
+      </div>
+    </footer>
 </body>
 <script src="plot.js"></script> 
 </html>
