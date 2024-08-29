@@ -53,15 +53,16 @@ function resetPage() {
 }
 
 async function getPlot(movieId) {
+    console.log(movieId)
+
     try {
         const apiKey = 'dc7d7fc0';
         const response = await fetch(`https://www.omdbapi.com/?i=${movieId}&plot=full&apikey=${apiKey}`);
         const movieData = await response.json();
-        const modalEl = document.querySelector(".modal");
+        const modalEl = document.querySelector(".overlay");
 
         if (modalEl && movieData.Response === "True") {
             modalEl.innerHTML = plotHTML(movieData);
-            toggleModal();
         } else {
             console.error("Movie not found or invalid response:", movieData);
             if (modalEl) {
@@ -77,40 +78,28 @@ function movieHTML(movie) {
     return `
         <div class="movie">
             <div class="movie-card">
-                <div class="movie-card__container">
+                <div class="movie-card__container" >
                     <h1>${movie.Title}</h1>
                     <p><b>Type: ${movie.Type} | Year: ${movie.Year}</b></p>
                     <p><img src="${movie.Poster}" alt="${movie.Title} poster" class="movie--img"></p>
                     <div class="movie__card--footer">
                         <h4 id="movie-id">${movie.imdbID}</h4>
-                        <button class="btn__more--info" onclick="getPlot('${movie.imdbID}')">More Info</button>
+                        
                     </div>
-                    <div class="project__wrapper--bg"></div>
+                    <div class="overlay" onmouseover="getPlot('${movie.imdbID}')">
+
+                    </div>
                 </div>
+
             </div>
         </div>`;
 }
 
 function plotHTML(movie) {
     return `
-        <div class="modal__content">
-            <div class="modal__half movie__basic">
-                <h3 class="model__basic--title dk__brown">Title: ${movie.Title}</h3>
-                <h4 class="model__basic--subtitle dk__brown">Type: ${movie.Type} | Year: ${movie.Year}</h4>
-                <p><img src="${movie.Poster}" alt="${movie.Title} poster" class="movie--img"></p>
-            </div>
-            <div class="modal__half movie__details">
-                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
-                <h3 class="model__title model__title--details">Actors: ${movie.Actors}</h3>
-                <h3 class="modal__sub-title model__sub-title--details">${movie.Plot}</h3>
-            </div>
-        </div>`;
+            <h3>Title: ${movie.Title}</h3>
+            <h3>Actors: ${movie.Actors}</h3>
+            <h3>${movie.Plot}</h3>
+        `;
 }
 
-function toggleModal() {
-    isModalOpen = !isModalOpen;
-    const modalEl = document.querySelector(".modal");
-    if (modalEl) {
-        modalEl.style.display = isModalOpen ? "block" : "none";
-    }
-}
