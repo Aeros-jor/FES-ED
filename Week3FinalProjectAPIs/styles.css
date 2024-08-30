@@ -54,14 +54,18 @@ input, select {
   align-items: center;
 }
 
+.container {
+  margin: 0 32px;
+}
+
 .movie-list {
-  width: 80%;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
 }
   
 .movie {
-  width: 50%;
+  width: 25%;
 }
   
 .movie-card {
@@ -73,8 +77,17 @@ input, select {
   border-radius: 10px;
 }
   
+h1 {
+  text-align: center;
+  width: 75%;
+  font-size: 24px;
+}
 .movie-card__container {
   padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .movie--img {
