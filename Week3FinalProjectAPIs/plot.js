@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     getMovies();
 });
 
+// Model code *************************************************************************
+
+
 async function getMovies() {
     try {
         const response = await fetch(`https://www.omdbapi.com/?s=${titleSearch}&type=${movieType}&page=${page}&apikey=dc7d7fc0`);
@@ -59,7 +62,7 @@ async function getPlot(movieId) {
         const apiKey = 'dc7d7fc0';
         const response = await fetch(`https://www.omdbapi.com/?i=${movieId}&plot=full&apikey=${apiKey}`);
         const movieData = await response.json();
-        const modalEl = document.querySelector(".overlay");
+        const modalEl = document.querySelector(".modal");
 
         if (modalEl && movieData.Response === "True") {
             modalEl.innerHTML = plotHTML(movieData);
@@ -79,27 +82,25 @@ function movieHTML(movie) {
         <div class="movie">
             <div class="movie-card">
                 <div class="movie-card__container" >
-                    <h1>${movie.Title}</h1>
+                    <div class="title--container"><h1>${movie.Title}</h1></div>
                     <p><b>Type: ${movie.Type} | Year: ${movie.Year}</b></p>
                     <p><img src="${movie.Poster}" alt="${movie.Title} poster" class="movie--img"></p>
                     <div class="movie__card--footer">
                         <h4 id="movie-id">${movie.imdbID}</h4>
+                        <button class="btn__more--info" onclick="getPlot('${movie.imdbID}')">More Info</button>
                         
                     </div>
-                    <div class="overlay" onmouseover="getPlot('${movie.imdbID}')">
-
-                    </div>
                 </div>
-
             </div>
         </div>`;
 }
 
 function plotHTML(movie) {
     return `
-            <h3>Title: ${movie.Title}</h3>
-            <h3>Actors: ${movie.Actors}</h3>
-            <h3>${movie.Plot}</h3>
+              <h2 id="modal__title">Title: ${movie.Title}</h2>
+              <h3 id="modal__actors">Actors: ${movie.Actors}</h3>
+              <h3 id="modal__desc">${movie.Plot}</h3>          
         `;
 }
 
+// ******************************************************************************** 
