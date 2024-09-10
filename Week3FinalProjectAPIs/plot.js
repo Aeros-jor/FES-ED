@@ -2,6 +2,10 @@ let movieType = "movie";
 let titleSearch = "star";
 let page = "1";
 let isModalOpen = false;
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("type__control").value = movieType;
@@ -12,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getMovies();
 });
 
-// Model code *************************************************************************
+
 
 
 async function getMovies() {
@@ -79,6 +83,7 @@ async function getPlot(movieId) {
 
 function movieHTML(movie) {
     return `
+    
         <div class="movie">
             <div class="movie-card">
                 <div class="movie-card__container" >
@@ -87,7 +92,7 @@ function movieHTML(movie) {
                     <p><img src="${movie.Poster}" alt="${movie.Title} poster" class="movie--img"></p>
                     <div class="movie__card--footer">
                         <h4 id="movie-id">${movie.imdbID}</h4>
-                        <button class="btn__more--info" onclick="getPlot('${movie.imdbID}')">More Info</button>
+                        <button class="btn btn-open btn__more--info" onclick="getPlot('${movie.imdbID}')">More Info</button>
                         
                     </div>
                 </div>
@@ -97,10 +102,42 @@ function movieHTML(movie) {
 
 function plotHTML(movie) {
     return `
-              <h2 id="modal__title">Title: ${movie.Title}</h2>
-              <h3 id="modal__actors">Actors: ${movie.Actors}</h3>
-              <h3 id="modal__desc">${movie.Plot}</h3>          
+            <div class="flex">
+                <img src="user.png" width="50px" height="50px" alt="user" />
+                <button class="btn-close">⨉</button>
+            </div> 
+            <h2 id="modal__title">Title: ${movie.Title}</h2>
+            <h3 id="modal__actors">Actors: ${movie.Actors}</h3>
+            <h3 id="modal__desc">${movie.Plot}</h3>          
         `;
 }
 
 // ******************************************************************************** 
+// Model code *************************************************************************
+/* *************** MODAL CODE ************ */
+
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
+// open modal function
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+openModalBtn.addEventListener("click", openModal);
